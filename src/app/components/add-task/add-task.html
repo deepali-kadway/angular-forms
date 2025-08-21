@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="add_task()">
+<div class="form-group">
+    <label for="title">Title: </label>
+    <input type="text" class="form-control" placeholder="Enter title" formControlName="title" id="title">
+</div>
+<div class="alert alert-danger" *ngIf="title?.invalid && title?.touched">
+    <div *ngIf="title?.errors?.['required']">Title is Required</div>
+</div><br>
+
+<div class="form-group">
+    <label for="description">Description: </label>
+    <input type="text" class="form-control" placeholder="Enter Description" formControlName="description" id="description">
+</div>
+<div class="alert alert-danger" *ngIf="description?.invalid && description?.touched">
+    <div *ngIf="description?.errors?.['required']">Description is Required</div>
+</div><br>
+
+<div class="form-group">
+    <label for="category">Category: </label>
+   <select formControlName="category">
+        <option value="Groceries">Groceries</option>
+        <option value="Work">Work</option>
+        <option value="Exercise">Exercise</option>
+    </select>
+</div>
+<div class="alert alert-danger" *ngIf="category?.invalid && category?.touched">
+    <div *ngIf="category?.errors?.['required']">Select a Category</div>
+</div><br>
+
+<div class="form-group">
+    <label for="dueDate">Date: </label>
+    <input type="date" class="form-control" formControlName="dueDate" id="dueDate">
+</div>
+<div class="alert alert-danger" *ngIf="dueDate?.invalid && dueDate?.touched">
+    <div *ngIf="dueDate?.errors?.['required']">Select a Date</div>
+</div><br>
+
+<div class="form-group">
+    <label for="time">Time: </label>
+    <input type="time" class="form-control" formControlName="time" id="time">
+</div>
+<div class="alert alert-danger" *ngIf="time?.invalid && time?.touched">
+    <div *ngIf="time?.errors?.['required']">Select a Time</div>
+</div><br>
+
+<div class="form-group">
+    <label for="priority_level">Priority Level: </label>
+   <select formControlName="priority_level">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+<div class="alert alert-danger" *ngIf="priority_level?.invalid && priority_level?.touched">
+    <div *ngIf="priority_level?.errors?.['required']">Select the priorty level</div>
+</div><br>
+
+<div class="form-group">
+    <label for="progress_level">Progress Level: </label>
+   <select formControlName="progress_level">
+        <option value="Not Started">Not Started</option>
+        <option value="Started">Started</option>
+        <option value="Completed">Completed</option>
+    </select>
+</div>
+<div class="alert alert-danger" *ngIf="progress_level?.invalid && progress_level?.touched">
+    <div *ngIf="progress_level?.errors?.['required']">Select the progress level</div>
+</div><br>
+<button type="submit" class="btn btn-primary" [disabled]="form.invalid">Add Task</button>
+</form>
