@@ -28,11 +28,11 @@
 </div><br>
 
 <div class="form-group">
-    <label for="dueDate">Date: </label>
-    <input type="date" class="form-control" formControlName="dueDate" id="dueDate">
+    <label for="date">Date: </label>
+    <input type="date" class="form-control" formControlName="date" id="date">
 </div>
-<div class="alert alert-danger" *ngIf="dueDate?.invalid && dueDate?.touched">
-    <div *ngIf="dueDate?.errors?.['required']">Select a Date</div>
+<div class="alert alert-danger" *ngIf="date?.invalid && date?.touched">
+    <div *ngIf="date?.errors?.['required']">Select a Date</div>
 </div><br>
 
 <div class="form-group">
@@ -46,9 +46,9 @@
 <div class="form-group">
     <label for="priority_level">Priority Level: </label>
    <select formControlName="priority_level">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
     </select>
 </div>
 <div class="alert alert-danger" *ngIf="priority_level?.invalid && priority_level?.touched">
@@ -59,7 +59,7 @@
     <label for="progress_level">Progress Level: </label>
    <select formControlName="progress_level">
         <option value="Not Started">Not Started</option>
-        <option value="Started">Started</option>
+        <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
     </select>
 </div>

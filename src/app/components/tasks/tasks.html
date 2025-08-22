@@ -1,0 +1,29 @@
+<h2>Tasks List</h2>
+
+<div *ngIf="tasks.length === 0" class="alert alert-info">
+  No tasks available. <a routerLink="/add-task">Add a task</a> to get started.
+</div>
+
+<div class="row" *ngIf="tasks.length > 0">
+  <div class="col-md-4 mb-3" *ngFor="let task of tasks">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ task.title }}</h5>
+        <p class="card-text">{{ task.description }}</p>
+        <div class="task-details">
+          <p><strong>Category:</strong> {{ task.category }}</p>
+          <p><strong>Date:</strong> {{ task.date }}</p>
+          <p><strong>Time:</strong> {{ task.time }}</p>
+          <p><strong>Priority:</strong> <span class="badge" 
+             [class]="'badge-' + (task.priority_level === 'High' ? 'danger' : task.priority_level === 'Medium' ? 'warning' : 'success')">
+             {{ task.priority_level }}
+          </span></p>
+          <p><strong>Status:</strong> <span class="badge" 
+             [class]="'badge-' + (task.progress_level === 'Completed' ? 'success' : task.progress_level === 'In Progress' ? 'primary' : 'secondary')">
+             {{ task.progress_level }}
+          </span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

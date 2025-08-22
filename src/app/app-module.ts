@@ -4,16 +4,25 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { AddTask } from './components/add-task/add-task';
+import { Home } from './components/home/home';
+import { Tasks } from './components/tasks/tasks';
+import { Navbar } from './components/navbar/navbar';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     App,
-    AddTask
+    AddTask,
+    Home,
+    Tasks,
+    Navbar
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
